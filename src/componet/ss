@@ -1,0 +1,16 @@
+<div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src={ele.image} />
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1> Name:{ele.name}</h1>
+                                        <hr />
+                                        <h3>gender:{ele.gender}</h3>
+                                        <h5>species:{ele.species}</h5>
+                                        <h6>stauts:{ele.status}</h6>
+
+
+                                    </div>
+                                </div>
+                            </div>
