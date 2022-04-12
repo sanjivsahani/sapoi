@@ -6,6 +6,7 @@ import './Home.css'
 const Home = () => {
     const [state, setState] = useState([])
 
+
     function getdata() {
         axios.get("https://rickandmortyapi.com/api/character").then((res) => {
             let a = (res.data)
@@ -16,11 +17,21 @@ const Home = () => {
         getdata()
     }, [])
 
-    console.log(state)
-
+    const push = (ele, ind) => {
+        let char = localStorage.getItem("data")
+        if (char == null) {
+            var charobj = [];
+        } else {
+            charobj = JSON.parse(char);
+        }
+        charobj.push(ele);
+        localStorage.setItem("data", JSON.stringify(charobj));
+    }
+    let a = JSON.parse(localStorage.getItem("data"))
+    // console.log(a)
     return (
         <div>
-            <div class="row">
+            <div className="row">
                 {
                     state.map((ele, ind) => {
 
@@ -37,7 +48,7 @@ const Home = () => {
                                         <h5>species:{ele.species}</h5>
                                         <h6>stauts:{ele.status}</h6>
                                         <hr />
-                                        <button className='btn btn-warning' onClick={()=>push(ele,ind)}><h6>Like @ me</h6></button>
+                                        <button className='btn btn-warning' onClick={() => push(ele, ind)}><h4>Like @ me</h4></button>
                                     </div>
                                 </div>
                             </div>
